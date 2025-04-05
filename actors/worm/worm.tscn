@@ -14,28 +14,21 @@ is_face = true
 
 [node name="s2" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 107
-position = Vector2(-3, 0)
 
 [node name="s3" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 106
-position = Vector2(-6, 0)
 
 [node name="s4" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 105
-position = Vector2(-9, 0)
 
 [node name="s5" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 104
-position = Vector2(-12, 0)
 
 [node name="s6" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 103
-position = Vector2(-15, 0)
 
 [node name="s7" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 102
-position = Vector2(-18, 0)
 
 [node name="s8" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 101
-position = Vector2(-21, 0)

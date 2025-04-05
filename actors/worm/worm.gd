@@ -1,5 +1,7 @@
 class_name Worm extends Node2D
 
+signal worm_moved(pos: Vector2, disp: Vector2)
+
 @onready var parts: Node2D = $Parts
 
 var speed = 0.5
@@ -26,6 +28,7 @@ func move():
 	position += displacement
 	parts.position -= displacement
 	head_pos += displacement
+	worm_moved.emit(position, displacement)
 	
 	var prev_head = head_pos
 	var z = Util.Z_WORM + parts.get_children().size()
@@ -44,7 +47,7 @@ func move():
 		
 		# Make dirt dark
 		var dirt_mark: Node2D = dirt.instantiate()
-		dirt_mark.position = temp
+		dirt_mark.position = position + temp - head_pos
 		Util.dirt.add_child(dirt_mark)
 		
 		prev_head = temp
