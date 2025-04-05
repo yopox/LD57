@@ -39,12 +39,3 @@ position = Vector2(-18, 0)
 [node name="s8" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 101
 position = Vector2(-21, 0)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_right = 2.0
-offset_bottom = 2.0
-color = Color(1, 0, 0, 1)

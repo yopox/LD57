@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd6jsqvn00y87"]
+
+[ext_resource type="Texture2D" uid="uid://c0ytmvu1ihawg" path="res://actors/worm/section.png" id="1_lny36"]
+
+[node name="Dirt" type="Node2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.12, 0.0704, 0.024, 1)
+texture = ExtResource("1_lny36")

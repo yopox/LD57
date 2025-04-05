@@ -23,35 +23,35 @@ script = ExtResource("1_fhm75")
 
 [node name="background" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_7edc8")
-offset_right = 480.0
-offset_bottom = 270.0
+offset_right = 240.0
+offset_bottom = 135.0
 
 [node name="Oscillator" type="Node2D" parent="."]
-position = Vector2(0, 64)
+position = Vector2(0, 33)
 script = ExtResource("1_0s0d2")
-metadata/_custom_type_script = ExtResource("1_0s0d2")
+metadata/_custom_type_script = "uid://bgmbc7d265tks"
 
 [node name="Label" type="Label" parent="Oscillator"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_top = -8.0
-offset_right = 480.0
-offset_bottom = 56.0
+offset_right = 240.0
+offset_bottom = 40.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_0s0d2")
-theme_override_font_sizes/font_size = 48
-text = "godot template"
+theme_override_font_sizes/font_size = 32
+text = "LD57"
 horizontal_alignment = 1
 
 [node name="YMenu" type="VBoxContainer" parent="."]
-offset_top = 128.0
-offset_right = 480.0
-offset_bottom = 224.0
+offset_top = 62.0
+offset_right = 240.0
+offset_bottom = 110.0
 alignment = 1
 script = ExtResource("5_7edc8")
-metadata/_custom_type_script = ExtResource("5_7edc8")
+metadata/_custom_type_script = "uid://bch3vv0pesmao"
 
 [node name="play" type="Label" parent="YMenu"]
 layout_mode = 2
@@ -68,26 +68,26 @@ text = "exit"
 horizontal_alignment = 1
 
 [node name="Footer" type="Node2D" parent="."]
-position = Vector2(0, 232)
+position = Vector2(0, 112)
 
 [node name="authors" type="Label" parent="Footer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_right = 448.0
+offset_left = 16.0
+offset_right = 224.0
 offset_bottom = 16.0
 grow_vertical = 0
 size_flags_horizontal = 4
 theme = SubResource("Theme_0s0d2")
-text = "by yopox"
+text = "by yopox, vicortie"
 
 [node name="version" type="Label" parent="Footer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 32.0
-offset_right = 448.0
+offset_left = 16.0
+offset_right = 224.0
 offset_bottom = 16.0
 grow_horizontal = 2
 size_flags_horizontal = 4
