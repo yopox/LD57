@@ -15,7 +15,7 @@ func _ready() -> void:
 	update_items()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_released("down") or Input.is_action_just_released("up"):
 		timer.stop()
 	

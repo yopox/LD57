@@ -8,33 +8,35 @@ var head_pos = Vector2.ZERO
 var dirt = preload("res://actors/worm/dirt.tscn")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	move()
 
 
 func move():
-	var moved = false
-	
 	var dx = Input.get_axis("left", "right")
 	var dy = Input.get_axis("up", "down")
 	
 	if abs(dx) < 0.001 and abs(dy) < 0.001: return
 	
-	var move = Vector2(dx, dy).normalized() * speed
+	var displacement = Vector2(dx, dy).normalized() * speed
 	var dist = speed
 	
 	if not dist > 0.001: return
 	
-	position += move
-	parts.position -= move
-	head_pos += move
+	position += displacement
+	parts.position -= displacement
+	head_pos += displacement
 	
 	var prev_head = head_pos
 	var z = Util.Z_WORM + parts.get_children().size()
+	var first = true
 	
 	for section: WormSection in parts.get_children():
 		var temp = section.position
-		if section.position.distance_to(prev_head) > 3.0:
+		if first:
+			section.position = prev_head
+			first = false
+		elif section.position.distance_to(prev_head) > 2.99:
 			var angle = temp.angle_to_point(prev_head)
 			section.position = temp + Vector2.from_angle(angle) * dist
 		section.z_index = z

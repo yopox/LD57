@@ -11,4 +11,4 @@ var scene_paths: Dictionary[Scenes, String] = {
 	Scenes.Game: "res://scenes/game/game.tscn",
 }
 
-var Z_WORM: float = 100;
+var Z_WORM: int = 100;

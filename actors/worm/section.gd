@@ -7,6 +7,6 @@ class_name WormSection extends Node2D
 
 func _ready() -> void:
 	face.texture = face.texture.duplicate()
-	(face.texture as AtlasTexture).region.position.x = 8 * (randi() % 11)
+	(face.texture as AtlasTexture).region.position.x = 0
 	face.visible = is_face
 	sprite.modulate.g = randf_range(0.45, 0.55)
