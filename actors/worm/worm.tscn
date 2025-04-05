@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://duo4rcb8fe756"]
+
+[ext_resource type="PackedScene" uid="uid://dy5f6sxex581v" path="res://actors/worm/section.tscn" id="1_ao0qn"]
+[ext_resource type="Script" uid="uid://bq5fo3feucg4l" path="res://actors/worm/worm.gd" id="1_llwuq"]
+
+[node name="Worm" type="Node2D"]
+script = ExtResource("1_llwuq")
+
+[node name="Parts" type="Node2D" parent="."]
+
+[node name="s1" parent="Parts" instance=ExtResource("1_ao0qn")]
+z_index = 108
+is_face = true
+
+[node name="s2" parent="Parts" instance=ExtResource("1_ao0qn")]
+z_index = 107
+position = Vector2(-3, 0)
+
+[node name="s3" parent="Parts" instance=ExtResource("1_ao0qn")]
+z_index = 106
+position = Vector2(-6, 0)
+
+[node name="s4" parent="Parts" instance=ExtResource("1_ao0qn")]
+z_index = 105
+position = Vector2(-9, 0)
+
+[node name="s5" parent="Parts" instance=ExtResource("1_ao0qn")]
+z_index = 104
+position = Vector2(-12, 0)
+
+[node name="s6" parent="Parts" instance=ExtResource("1_ao0qn")]
+z_index = 103
+position = Vector2(-15, 0)
+
+[node name="s7" parent="Parts" instance=ExtResource("1_ao0qn")]
+z_index = 102
+position = Vector2(-18, 0)
+
+[node name="s8" parent="Parts" instance=ExtResource("1_ao0qn")]
+z_index = 101
+position = Vector2(-21, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(1, 0, 0, 1)
