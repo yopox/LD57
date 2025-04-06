@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dv0lqkpdi85l"]
+[gd_scene load_steps=17 format=3 uid="uid://dv0lqkpdi85l"]
 
 [ext_resource type="Script" uid="uid://c38f6wiydsuj2" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://duo4rcb8fe756" path="res://actors/worm/worm.tscn" id="1_sul5r"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cufur1ba5fdvi" path="res://actors/mole/mole.tscn" id="8_87uf6"]
 [ext_resource type="PackedScene" uid="uid://dy5f6sxex581v" path="res://actors/worm/section.tscn" id="9_5jirj"]
 [ext_resource type="Texture2D" uid="uid://3sqellp2o6xo" path="res://scenes/game/heart.png" id="9_kp23o"]
+[ext_resource type="PackedScene" uid="uid://bjqwp3x47x6vs" path="res://actors/centipede/centipede.tscn" id="12_vaxfo"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_87uf6"]
 
@@ -160,6 +161,25 @@ position = Vector2(42, 76)
 [node name="Bubble" parent="-1;0/Firefly" instance=ExtResource("8_5jirj")]
 position = Vector2(9, -10)
 
+[node name="Centipede" parent="-1;0" instance=ExtResource("12_vaxfo")]
+position = Vector2(115, 34)
+
+[node name="WormSection" parent="-1;0/Centipede/Parts" index="0"]
+colors = Array[Color]([Color(0.988235, 0.937255, 0.552941, 1), Color(1, 0.721569, 0.47451, 1)])
+
+[node name="WormSection2" parent="-1;0/Centipede/Parts" index="1"]
+colors = Array[Color]([Color(0.988235, 0.937255, 0.552941, 1), Color(1, 0.721569, 0.47451, 1)])
+
+[node name="WormSection3" parent="-1;0/Centipede/Parts" index="2"]
+colors = Array[Color]([Color(0.988235, 0.937255, 0.552941, 1), Color(1, 0.721569, 0.47451, 1)])
+
+[node name="WormSection4" parent="-1;0/Centipede/Parts" index="3"]
+colors = Array[Color]([Color(0.988235, 0.937255, 0.552941, 1), Color(1, 0.721569, 0.47451, 1)])
+
+[node name="Bubble" parent="-1;0/Centipede" instance=ExtResource("8_5jirj")]
+z_index = 6
+position = Vector2(6, -12)
+
 [node name="0;0" type="Node2D" parent="."]
 position = Vector2(32, 16)
 
@@ -288,8 +308,33 @@ texture = ExtResource("9_kp23o")
 [node name="1;1" type="Node2D" parent="."]
 position = Vector2(208, 119)
 
+[node name="Centipede" parent="1;1" instance=ExtResource("12_vaxfo")]
+position = Vector2(116, 50)
+
+[node name="Bubble" parent="1;1/Centipede" instance=ExtResource("8_5jirj")]
+z_index = 6
+position = Vector2(6, -12)
+
 [node name="-1;2" type="Node2D" parent="."]
 position = Vector2(-144, 222)
+
+[node name="Centipede" parent="-1;2" instance=ExtResource("12_vaxfo")]
+position = Vector2(59, 74)
+
+[node name="WormSection" parent="-1;2/Centipede/Parts" index="0"]
+colors = Array[Color]([Color(0.356863, 0.65098, 0.458824, 1), Color(0.419608, 0.788235, 0.423529, 1)])
+
+[node name="WormSection2" parent="-1;2/Centipede/Parts" index="1"]
+colors = Array[Color]([Color(0.356863, 0.65098, 0.458824, 1), Color(0.419608, 0.788235, 0.423529, 1)])
+
+[node name="WormSection3" parent="-1;2/Centipede/Parts" index="2"]
+colors = Array[Color]([Color(0.356863, 0.65098, 0.458824, 1), Color(0.419608, 0.788235, 0.423529, 1)])
+
+[node name="WormSection4" parent="-1;2/Centipede/Parts" index="3"]
+colors = Array[Color]([Color(0.356863, 0.65098, 0.458824, 1), Color(0.419608, 0.788235, 0.423529, 1)])
+
+[node name="Bubble" parent="-1;2/Centipede" instance=ExtResource("8_5jirj")]
+position = Vector2(6, -12)
 
 [node name="0;2" type="Node2D" parent="."]
 position = Vector2(32, 222)
@@ -309,6 +354,8 @@ type = 3
 [editable path="Player"]
 [editable path="Player/Parts/s5"]
 [editable path="Player/Parts/s6"]
+[editable path="-1;0/Centipede"]
 [editable path="0;1/Worm"]
 [editable path="0;1/Worm/Parts/s5"]
 [editable path="0;1/Worm/Parts/s6"]
+[editable path="-1;2/Centipede"]

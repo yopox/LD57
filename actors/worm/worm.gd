@@ -24,7 +24,6 @@ func move(direction: Vector2):
 	worm_moved.emit(position, displacement)
 	
 	var prev_head = head_pos
-	var z = Util.Z_WORM + parts.get_children().size()
 	var first = true
 	
 	for section: WormSection in parts.get_children():
@@ -35,8 +34,5 @@ func move(direction: Vector2):
 		elif section.position.distance_to(prev_head) > section.distance:
 			var angle = temp.angle_to_point(prev_head)
 			section.position = temp + Vector2.from_angle(angle) * dist
-		
-		section.z_index = z
-		z -= 1
 		
 		prev_head = temp

@@ -2,8 +2,15 @@ extends Worm
 
 @onready var face: Sprite2D = $Parts/s1/Face
 
+enum State {
+	BASE,
+	CENTIPEDE_FOLLOWING,
+	RING,
+	GLASSES,
+}
 
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	if not dir("w") and not dir("e") and not dir("d") and not dir("x") and not dir("z") and not dir("a"):
 		return
 	

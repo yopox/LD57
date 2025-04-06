@@ -25,22 +25,22 @@ z_index = 107
 colors = [Color(0.831373, 0.431373, 0.701961, 1)]
 
 [node name="s3" parent="Parts" instance=ExtResource("1_ao0qn")]
-z_index = 104
+z_index = 106
 colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
 
 [node name="s4" parent="Parts" instance=ExtResource("1_ao0qn")]
-z_index = 103
+z_index = 105
 colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
 
 [node name="s5" parent="Parts" instance=ExtResource("1_ao0qn")]
-z_index = 106
+z_index = 104
 colors = [Color(1, 0.764706, 0.94902, 1)]
 
 [node name="Sprite2D" parent="Parts/s5" index="0"]
 texture = ExtResource("4_yp4t7")
 
 [node name="s6" parent="Parts" instance=ExtResource("1_ao0qn")]
-z_index = 105
+z_index = 103
 colors = [Color(1, 0.764706, 0.94902, 1)]
 
 [node name="Sprite2D" parent="Parts/s6" index="0"]
