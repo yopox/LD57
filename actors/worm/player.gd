@@ -2,6 +2,8 @@ extends Worm
 
 @onready var face: Sprite2D = $Parts/s1/Face
 
+var blocked: Dictionary[BlockMov.Type, int] = {}
+
 enum State {
 	BASE,
 	CENTIPEDE_FOLLOWING,
@@ -50,6 +52,15 @@ func _process(_delta: float) -> void:
 	else:
 		face.position.y = -1.0
 	
+	if blocked.has(BlockMov.Type.BLOCK_X_MINUS):
+		direction.x = max(0, direction.x)
+	if blocked.has(BlockMov.Type.BLOCK_X_PLUS):
+		direction.x = min(0, direction.x)
+	if blocked.has(BlockMov.Type.BLOCK_Y_MINUS):
+		direction.y = max(0, direction.y)
+	if blocked.has(BlockMov.Type.BLOCK_Y_PLUS):
+		direction.y = min(0, direction.y)
+	
 	move(direction)
 	add_dirt()
 
@@ -63,3 +74,13 @@ func add_dirt() -> void:
 	var dirt_marks = Util.dirt.get_children()
 	for i in range(0, dirt_marks.size() - 200 * parts.get_children().size()):
 		dirt_marks[i].queue_free()
+
+
+func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	if area is BlockMov:
+		blocked[area.type] = 1
+
+
+func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	if area is BlockMov:
+		blocked.erase(area.type)
