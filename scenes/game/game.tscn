@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dv0lqkpdi85l"]
+[gd_scene load_steps=16 format=3 uid="uid://dv0lqkpdi85l"]
 
 [ext_resource type="Script" uid="uid://c38f6wiydsuj2" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://duo4rcb8fe756" path="res://actors/worm/worm.tscn" id="1_sul5r"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bh18rhrnqvjku" path="res://actors/ant/anthill.png" id="4_lfrn8"]
 [ext_resource type="Texture2D" uid="uid://dhurv0x3rvq6e" path="res://actors/egg/egg.png" id="6_5i0tg"]
 [ext_resource type="Script" uid="uid://bq5fo3feucg4l" path="res://actors/worm/worm.gd" id="8_4j704"]
+[ext_resource type="PackedScene" uid="uid://dwfh0eu4t610y" path="res://actors/bubble/bubble.tscn" id="8_5jirj"]
 [ext_resource type="PackedScene" uid="uid://cufur1ba5fdvi" path="res://actors/mole/mole.tscn" id="8_87uf6"]
 [ext_resource type="PackedScene" uid="uid://dy5f6sxex581v" path="res://actors/worm/section.tscn" id="9_5jirj"]
 [ext_resource type="Texture2D" uid="uid://3sqellp2o6xo" path="res://scenes/game/heart.png" id="9_kp23o"]
@@ -156,6 +157,9 @@ position = Vector2(-144, 16)
 [node name="Firefly" parent="-1;0" instance=ExtResource("4_bdhmt")]
 position = Vector2(42, 76)
 
+[node name="Bubble" parent="-1;0/Firefly" instance=ExtResource("8_5jirj")]
+position = Vector2(9, -10)
+
 [node name="0;0" type="Node2D" parent="."]
 position = Vector2(32, 16)
 
@@ -170,14 +174,21 @@ position = Vector2(88, 51)
 texture = ExtResource("4_lfrn8")
 
 [node name="Ant" parent="-1;1/anthill" instance=ExtResource("4_kelw5")]
-position = Vector2(-13, 27)
+position = Vector2(-13, 31)
+
+[node name="Bubble" parent="-1;1/anthill/Ant" instance=ExtResource("8_5jirj")]
+position = Vector2(9, -10)
+type = 2
 
 [node name="Ant2" parent="-1;1/anthill" instance=ExtResource("4_kelw5")]
-position = Vector2(29, -29)
+position = Vector2(29, -25)
 scale = Vector2(-1, 1)
 
+[node name="Bubble" parent="-1;1/anthill/Ant2" instance=ExtResource("8_5jirj")]
+position = Vector2(9, -10)
+
 [node name="Sprite2D" type="Sprite2D" parent="-1;1/anthill"]
-position = Vector2(15, 27)
+position = Vector2(15, 31)
 texture = SubResource("AtlasTexture_bdhmt")
 
 [node name="0;1" type="Node2D" parent="."]
@@ -267,6 +278,9 @@ z_index = 101
 position = Vector2(4, 28)
 colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
 
+[node name="Bubble" parent="0;1/Worm" instance=ExtResource("8_5jirj")]
+position = Vector2(12, -12)
+
 [node name="Sprite2D" type="Sprite2D" parent="0;1"]
 position = Vector2(88, 51)
 texture = ExtResource("9_kp23o")
@@ -284,7 +298,11 @@ position = Vector2(32, 222)
 position = Vector2(208, 222)
 
 [node name="Mole" parent="1;2" instance=ExtResource("8_87uf6")]
-position = Vector2(113, 58)
+position = Vector2(0, 73)
+
+[node name="Bubble" parent="1;2/Mole" instance=ExtResource("8_5jirj")]
+position = Vector2(14, -15)
+type = 3
 
 [connection signal="worm_moved" from="Player" to="Camera2D" method="_on_worm_worm_moved"]
 

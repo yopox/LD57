@@ -4,33 +4,33 @@ extends Worm
 
 
 func _process(delta: float) -> void:
-	if not dir("e") and not dir("r") and not dir("f") and not dir("c") and not dir("x") and not dir("s"):
+	if not dir("w") and not dir("e") and not dir("d") and not dir("x") and not dir("z") and not dir("a"):
 		return
 	
 	var direction = Vector2.ZERO
-	if dir("e") and dir("r"):
+	if dir("w") and dir("e"):
 		direction = Vector2.from_angle(-PI / 2)
-	elif dir("r") and dir("f"):
+	elif dir("e") and dir("d"):
 		direction = Vector2.from_angle(-PI / 8)
-	elif dir("f") and dir("c"):
+	elif dir("d") and dir("x"):
 		direction = Vector2.from_angle(PI / 8)
-	elif dir("c") and dir("x"):
+	elif dir("z") and dir("x"):
 		direction = Vector2.from_angle(PI / 2)
-	elif dir("s") and dir("x"):
+	elif dir("a") and dir("z"):
 		direction = Vector2.from_angle(7 * PI / 8)
-	elif dir("e") and dir("s"):
+	elif dir("w") and dir("a"):
 		direction = Vector2.from_angle(-7 * PI / 8)
-	elif dir("e"):
+	elif dir("w"):
 		direction = Vector2.from_angle(-3 * PI / 4)
-	elif dir("r"):
+	elif dir("e"):
 		direction = Vector2.from_angle(-PI / 4)
-	elif dir("f"):
+	elif dir("d"):
 		direction = Vector2.from_angle(0)
-	elif dir("c"):
-		direction = Vector2.from_angle(PI / 4)
 	elif dir("x"):
+		direction = Vector2.from_angle(PI / 4)
+	elif dir("z"):
 		direction = Vector2.from_angle(3 * PI / 4)
-	elif dir("s"):
+	elif dir("a"):
 		direction = Vector2.from_angle(PI)
 	
 	if direction.x > 0.0:
