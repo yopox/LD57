@@ -1,7 +1,6 @@
 class_name WormSection extends Node2D
 
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var face: Sprite2D = $Face
 
 @export var distance: float = 2.99
 @export var colors: Array[Color] = [
