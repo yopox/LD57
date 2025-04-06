@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc3hsqcqs3dsf"]
+
+[ext_resource type="Texture2D" uid="uid://bawiaggpj72r4" path="res://actors/firefly/firefly.png" id="1_jqvuo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87uf6"]
+atlas = ExtResource("1_jqvuo")
+region = Rect2(0, 0, 8, 0)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = SubResource("AtlasTexture_87uf6")

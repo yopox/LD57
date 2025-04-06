@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cufur1ba5fdvi"]
+
+[ext_resource type="Texture2D" uid="uid://cf0qsvb2lh4xt" path="res://actors/mole/mole.png" id="1_7rdcv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxvdb"]
+atlas = ExtResource("1_7rdcv")
+region = Rect2(0, 0, 32, 0)
+
+[node name="Mole" type="Sprite2D"]
+texture = SubResource("AtlasTexture_cxvdb")

@@ -1,11 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv0lqkpdi85l"]
+[gd_scene load_steps=15 format=3 uid="uid://dv0lqkpdi85l"]
 
 [ext_resource type="Script" uid="uid://c38f6wiydsuj2" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://duo4rcb8fe756" path="res://actors/worm/worm.tscn" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://ck2lqn6nvn3uj" path="res://scenes/game/camera_2d.gd" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://bc3hsqcqs3dsf" path="res://actors/firefly/firefly.tscn" id="4_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://nb7jl58246gp" path="res://actors/ant/ant.tscn" id="4_kelw5"]
 [ext_resource type="Texture2D" uid="uid://bh18rhrnqvjku" path="res://actors/ant/anthill.png" id="4_lfrn8"]
 [ext_resource type="Texture2D" uid="uid://dhurv0x3rvq6e" path="res://actors/egg/egg.png" id="6_5i0tg"]
+[ext_resource type="Script" uid="uid://bq5fo3feucg4l" path="res://actors/worm/worm.gd" id="8_4j704"]
+[ext_resource type="PackedScene" uid="uid://cufur1ba5fdvi" path="res://actors/mole/mole.tscn" id="8_87uf6"]
+[ext_resource type="PackedScene" uid="uid://dy5f6sxex581v" path="res://actors/worm/section.tscn" id="9_5jirj"]
+[ext_resource type="Texture2D" uid="uid://3sqellp2o6xo" path="res://scenes/game/heart.png" id="9_kp23o"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_87uf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kelw5"]
 size = Vector2(176, 103)
@@ -16,6 +23,9 @@ region = Rect2(0, 0, 16, 0)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7h61r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_87uf6")
 
 [node name="Sections" type="Node" parent="."]
 
@@ -91,8 +101,48 @@ position = Vector2(88, 51.5)
 shape = SubResource("RectangleShape2D_kelw5")
 debug_color = Color(0.365647, 0.604511, 0.270884, 0.0784314)
 
-[node name="Worm" parent="." instance=ExtResource("1_sul5r")]
+[node name="Player" parent="." instance=ExtResource("1_sul5r")]
 position = Vector2(120, 32)
+
+[node name="s9" parent="Player/Parts" index="8" instance=ExtResource("9_5jirj")]
+z_index = 102
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s10" parent="Player/Parts" index="9" instance=ExtResource("9_5jirj")]
+z_index = 101
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s11" parent="Player/Parts" index="10" instance=ExtResource("9_5jirj")]
+z_index = 102
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s12" parent="Player/Parts" index="11" instance=ExtResource("9_5jirj")]
+z_index = 101
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s13" parent="Player/Parts" index="12" instance=ExtResource("9_5jirj")]
+z_index = 102
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s14" parent="Player/Parts" index="13" instance=ExtResource("9_5jirj")]
+z_index = 101
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s15" parent="Player/Parts" index="14" instance=ExtResource("9_5jirj")]
+z_index = 102
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s16" parent="Player/Parts" index="15" instance=ExtResource("9_5jirj")]
+z_index = 101
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s17" parent="Player/Parts" index="16" instance=ExtResource("9_5jirj")]
+z_index = 102
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s18" parent="Player/Parts" index="17" instance=ExtResource("9_5jirj")]
+z_index = 101
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
 
 [node name="Dirt" type="Node2D" parent="."]
 
@@ -102,6 +152,9 @@ script = ExtResource("3_0sr1o")
 
 [node name="-1;0" type="Node2D" parent="."]
 position = Vector2(-144, 16)
+
+[node name="Firefly" parent="-1;0" instance=ExtResource("4_bdhmt")]
+position = Vector2(42, 76)
 
 [node name="0;0" type="Node2D" parent="."]
 position = Vector2(32, 16)
@@ -130,6 +183,94 @@ texture = SubResource("AtlasTexture_bdhmt")
 [node name="0;1" type="Node2D" parent="."]
 position = Vector2(32, 119)
 
+[node name="Worm" parent="0;1" instance=ExtResource("1_sul5r")]
+position = Vector2(81, 42)
+script = ExtResource("8_4j704")
+
+[node name="s1" parent="0;1/Worm/Parts" index="0"]
+z_index = 16
+position = Vector2(4, 2)
+
+[node name="Face" parent="0;1/Worm/Parts/s1" index="1"]
+type = 1
+
+[node name="s2" parent="0;1/Worm/Parts" index="1"]
+z_index = 15
+position = Vector2(1, 0)
+
+[node name="s3" parent="0;1/Worm/Parts" index="2"]
+z_index = 14
+position = Vector2(-1, -2)
+
+[node name="s4" parent="0;1/Worm/Parts" index="3"]
+z_index = 13
+position = Vector2(-3, -4)
+
+[node name="s5" parent="0;1/Worm/Parts" index="4"]
+z_index = 12
+position = Vector2(-7, -4)
+
+[node name="s6" parent="0;1/Worm/Parts" index="5"]
+z_index = 11
+position = Vector2(-10, -3)
+
+[node name="s7" parent="0;1/Worm/Parts" index="6"]
+z_index = 10
+position = Vector2(-13, -1)
+
+[node name="s8" parent="0;1/Worm/Parts" index="7"]
+z_index = 9
+position = Vector2(-14, 1)
+
+[node name="s9" parent="0;1/Worm/Parts" index="8" instance=ExtResource("9_5jirj")]
+z_index = 8
+position = Vector2(-14, 5)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s10" parent="0;1/Worm/Parts" index="9" instance=ExtResource("9_5jirj")]
+z_index = 7
+position = Vector2(-14, 8)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s11" parent="0;1/Worm/Parts" index="10" instance=ExtResource("9_5jirj")]
+z_index = 6
+position = Vector2(-13, 11)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s12" parent="0;1/Worm/Parts" index="11" instance=ExtResource("9_5jirj")]
+z_index = 101
+position = Vector2(-10, 14)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s13" parent="0;1/Worm/Parts" index="12" instance=ExtResource("9_5jirj")]
+z_index = 101
+position = Vector2(-7, 17)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s14" parent="0;1/Worm/Parts" index="13" instance=ExtResource("9_5jirj")]
+z_index = 101
+position = Vector2(-4, 20)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s15" parent="0;1/Worm/Parts" index="14" instance=ExtResource("9_5jirj")]
+z_index = 101
+position = Vector2(-1, 23)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s16" parent="0;1/Worm/Parts" index="15" instance=ExtResource("9_5jirj")]
+z_index = 101
+position = Vector2(2, 26)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="s17" parent="0;1/Worm/Parts" index="16" instance=ExtResource("9_5jirj")]
+z_index = 101
+position = Vector2(4, 28)
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[node name="Sprite2D" type="Sprite2D" parent="0;1"]
+position = Vector2(88, 51)
+texture = ExtResource("9_kp23o")
+
 [node name="1;1" type="Node2D" parent="."]
 position = Vector2(208, 119)
 
@@ -142,4 +283,14 @@ position = Vector2(32, 222)
 [node name="1;2" type="Node2D" parent="."]
 position = Vector2(208, 222)
 
-[connection signal="worm_moved" from="Worm" to="Camera2D" method="_on_worm_worm_moved"]
+[node name="Mole" parent="1;2" instance=ExtResource("8_87uf6")]
+position = Vector2(113, 58)
+
+[connection signal="worm_moved" from="Player" to="Camera2D" method="_on_worm_worm_moved"]
+
+[editable path="Player"]
+[editable path="Player/Parts/s5"]
+[editable path="Player/Parts/s6"]
+[editable path="0;1/Worm"]
+[editable path="0;1/Worm/Parts/s5"]
+[editable path="0;1/Worm/Parts/s6"]
