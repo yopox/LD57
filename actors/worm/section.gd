@@ -4,6 +4,7 @@ class_name WormSection extends Node2D
 @onready var face: Sprite2D = $Face
 
 @export var is_face: bool = false
+@export var distance: float = 2.99
 
 var last_pos: Vector2 = Vector2.ZERO
 var colors = [

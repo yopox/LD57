@@ -1,10 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://duo4rcb8fe756"]
 
 [ext_resource type="PackedScene" uid="uid://dy5f6sxex581v" path="res://actors/worm/section.tscn" id="1_ao0qn"]
-[ext_resource type="Script" uid="uid://bq5fo3feucg4l" path="res://actors/worm/worm.gd" id="1_llwuq"]
+[ext_resource type="Script" uid="uid://125fi340nafw" path="res://actors/worm/player.gd" id="1_llwuq"]
 
-[node name="Worm" type="Node2D"]
+[node name="Worm" type="Node2D" node_paths=PackedStringArray("parts")]
 script = ExtResource("1_llwuq")
+parts = NodePath("Parts")
+metadata/_custom_type_script = "uid://bq5fo3feucg4l"
 
 [node name="Parts" type="Node2D" parent="."]
 
