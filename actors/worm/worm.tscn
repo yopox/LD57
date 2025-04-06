@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://duo4rcb8fe756"]
+[gd_scene load_steps=5 format=3 uid="uid://duo4rcb8fe756"]
 
 [ext_resource type="PackedScene" uid="uid://dy5f6sxex581v" path="res://actors/worm/section.tscn" id="1_ao0qn"]
 [ext_resource type="Script" uid="uid://125fi340nafw" path="res://actors/worm/player.gd" id="1_llwuq"]
+[ext_resource type="PackedScene" uid="uid://k8u50nesusqi" path="res://actors/face/face.tscn" id="3_dxv6s"]
+[ext_resource type="Texture2D" uid="uid://bi14fvffgkjr8" path="res://actors/ant/big-section-ant.png" id="4_yp4t7"]
 
 [node name="Worm" type="Node2D" node_paths=PackedStringArray("parts")]
 script = ExtResource("1_llwuq")
@@ -12,25 +14,45 @@ metadata/_custom_type_script = "uid://bq5fo3feucg4l"
 
 [node name="s1" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 108
-is_face = true
+colors = [Color(0.933333, 0.560784, 0.796078, 1)]
+
+[node name="Face" parent="Parts/s1" instance=ExtResource("3_dxv6s")]
+modulate = Color(1, 1, 1, 1)
+type = 4
 
 [node name="s2" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 107
+colors = [Color(0.831373, 0.431373, 0.701961, 1)]
 
 [node name="s3" parent="Parts" instance=ExtResource("1_ao0qn")]
-z_index = 106
+z_index = 104
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
 
 [node name="s4" parent="Parts" instance=ExtResource("1_ao0qn")]
-z_index = 105
+z_index = 103
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
 
 [node name="s5" parent="Parts" instance=ExtResource("1_ao0qn")]
-z_index = 104
+z_index = 106
+colors = [Color(1, 0.764706, 0.94902, 1)]
+
+[node name="Sprite2D" parent="Parts/s5" index="0"]
+texture = ExtResource("4_yp4t7")
 
 [node name="s6" parent="Parts" instance=ExtResource("1_ao0qn")]
-z_index = 103
+z_index = 105
+colors = [Color(1, 0.764706, 0.94902, 1)]
+
+[node name="Sprite2D" parent="Parts/s6" index="0"]
+texture = ExtResource("4_yp4t7")
 
 [node name="s7" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 102
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
 
 [node name="s8" parent="Parts" instance=ExtResource("1_ao0qn")]
 z_index = 101
+colors = [Color(0.933333, 0.560784, 0.796078, 1), Color(0.831373, 0.431373, 0.701961, 1)]
+
+[editable path="Parts/s5"]
+[editable path="Parts/s6"]

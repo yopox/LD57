@@ -1,5 +1,7 @@
 extends Worm
 
+@onready var face: Sprite2D = $Parts/s1/Face
+
 
 func _process(delta: float) -> void:
 	if not dir("e") and not dir("r") and not dir("f") and not dir("c") and not dir("x") and not dir("s"):
@@ -30,6 +32,16 @@ func _process(delta: float) -> void:
 		direction = Vector2.from_angle(3 * PI / 4)
 	elif dir("s"):
 		direction = Vector2.from_angle(PI)
+	
+	if direction.x > 0.0:
+		face.position.x = 1.0
+	elif direction.x < 0.0:
+		face.position.x = -1.0
+	
+	if direction.y > 0.0:
+		face.position.y = 0.0
+	else:
+		face.position.y = -1.0
 	
 	move(direction)
 	add_dirt()

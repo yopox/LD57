@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy5f6sxex581v"]
+[gd_scene load_steps=3 format=3 uid="uid://dy5f6sxex581v"]
 
 [ext_resource type="Script" uid="uid://bc3k4hrt5ijjn" path="res://actors/worm/section.gd" id="1_lftxw"]
 [ext_resource type="Texture2D" uid="uid://c0ytmvu1ihawg" path="res://actors/worm/section.png" id="2_vwaod"]
-[ext_resource type="Texture2D" uid="uid://bcgh0tnn4o4ir" path="res://actors/worm/face.png" id="3_7rf17"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1lr5"]
-atlas = ExtResource("3_7rf17")
-region = Rect2(0, 0, 8, 8)
 
 [node name="Section" type="Node2D"]
 script = ExtResource("1_lftxw")
@@ -14,6 +9,3 @@ script = ExtResource("1_lftxw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.521569, 1, 1)
 texture = ExtResource("2_vwaod")
-
-[node name="Face" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_p1lr5")

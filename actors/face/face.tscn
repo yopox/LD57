@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://k8u50nesusqi"]
+
+[ext_resource type="Texture2D" uid="uid://crlve2nwi31yg" path="res://actors/face/face.png" id="1_nxyr7"]
+[ext_resource type="Script" uid="uid://cvf63rr3otpuk" path="res://actors/face/face.gd" id="2_bqhbv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1lr5"]
+atlas = ExtResource("1_nxyr7")
+region = Rect2(0, 0, 8, 8)
+
+[node name="Face" type="Sprite2D"]
+modulate = Color(0.121569, 0.0627451, 0.164706, 1)
+texture = SubResource("AtlasTexture_p1lr5")
+script = ExtResource("2_bqhbv")
