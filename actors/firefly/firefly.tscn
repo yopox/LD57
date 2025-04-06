@@ -1,10 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc3hsqcqs3dsf"]
+[gd_scene load_steps=6 format=3 uid="uid://bc3hsqcqs3dsf"]
 
 [ext_resource type="Texture2D" uid="uid://bawiaggpj72r4" path="res://actors/firefly/firefly.png" id="1_jqvuo"]
+[ext_resource type="Script" uid="uid://d28is0semd84e" path="res://actors/firefly/firefly.gd" id="2_qyfed"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_87uf6"]
-atlas = ExtResource("1_jqvuo")
-region = Rect2(0, 0, 8, 0)
+[sub_resource type="Animation" id="Animation_jqvuo"]
+resource_name = "fly"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
-[node name="Sprite2D" type="Sprite2D"]
-texture = SubResource("AtlasTexture_87uf6")
+[sub_resource type="Animation" id="Animation_qyfed"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51wd0"]
+_data = {
+&"RESET": SubResource("Animation_qyfed"),
+&"fly": SubResource("Animation_jqvuo")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2_qyfed")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_51wd0")
+}
+autoplay = "fly"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jqvuo")
+hframes = 2
