@@ -1,11 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv0lqkpdi85l"]
+[gd_scene load_steps=5 format=3 uid="uid://dv0lqkpdi85l"]
 
 [ext_resource type="Script" uid="uid://c38f6wiydsuj2" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://duo4rcb8fe756" path="res://actors/worm/worm.tscn" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://ck2lqn6nvn3uj" path="res://scenes/game/camera_2d.gd" id="3_0sr1o"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kelw5"]
+size = Vector2(176, 103)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7h61r")
+
+[node name="Sections" type="Node" parent="."]
+
+[node name="0 0" type="Area2D" parent="Sections"]
+position = Vector2(32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/0 0"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0, 0.595, 0.7, 0.0784314)
+
+[node name="-1 0" type="Area2D" parent="Sections"]
+position = Vector2(-144, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/-1 0"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0.217907, 0.598969, 0.58845, 0.0784314)
+
+[node name="1 0" type="Area2D" parent="Sections"]
+position = Vector2(208, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/1 0"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0.217907, 0.598969, 0.58845, 0.0784314)
+
+[node name="0 1" type="Area2D" parent="Sections"]
+position = Vector2(32, 119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/0 1"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0.633438, 0.42001, 0.80386, 0.0784314)
+
+[node name="-1 1" type="Area2D" parent="Sections"]
+position = Vector2(-144, 119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/-1 1"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0.451138, 0.482521, 0.889636, 0.0784314)
+
+[node name="1 1" type="Area2D" parent="Sections"]
+position = Vector2(208, 119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/1 1"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0.451138, 0.482521, 0.889636, 0.0784314)
+
+[node name="0 2" type="Area2D" parent="Sections"]
+position = Vector2(32, 222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/0 2"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0.606963, 0.524822, 0.292962, 0.0784314)
+
+[node name="-1 2" type="Area2D" parent="Sections"]
+position = Vector2(-144, 222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/-1 2"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0.365647, 0.604511, 0.270884, 0.0784314)
+
+[node name="1 2" type="Area2D" parent="Sections"]
+position = Vector2(208, 222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sections/1 2"]
+position = Vector2(88, 51.5)
+shape = SubResource("RectangleShape2D_kelw5")
+debug_color = Color(0.365647, 0.604511, 0.270884, 0.0784314)
 
 [node name="Worm" parent="." instance=ExtResource("1_sul5r")]
 position = Vector2(120, 32)
