@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4mehgnwt1tjj"
+path="res://.godot/imported/animals_worm eat dirt.ogg-3f40617870b0b25bcc20b11c0650c960.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/animals_worm eat dirt.ogg"
+dest_files=["res://.godot/imported/animals_worm eat dirt.ogg-3f40617870b0b25bcc20b11c0650c960.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

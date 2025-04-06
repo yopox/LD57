@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ddmcxbj54ejy3"
+path="res://.godot/imported/animals_mole sleeping.ogg-6da1a60065ca7a0b61facde765db1ee7.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/animals_mole sleeping.ogg"
+dest_files=["res://.godot/imported/animals_mole sleeping.ogg-6da1a60065ca7a0b61facde765db1ee7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
