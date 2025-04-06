@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv0lqkpdi85l"]
+[gd_scene load_steps=9 format=3 uid="uid://dv0lqkpdi85l"]
 
 [ext_resource type="Script" uid="uid://c38f6wiydsuj2" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://duo4rcb8fe756" path="res://actors/worm/worm.tscn" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://ck2lqn6nvn3uj" path="res://scenes/game/camera_2d.gd" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://nb7jl58246gp" path="res://actors/ant/ant.tscn" id="4_kelw5"]
+[ext_resource type="Texture2D" uid="uid://bh18rhrnqvjku" path="res://actors/ant/anthill.png" id="4_lfrn8"]
+[ext_resource type="Texture2D" uid="uid://dhurv0x3rvq6e" path="res://actors/egg/egg.png" id="6_5i0tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kelw5"]
 size = Vector2(176, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdhmt"]
+atlas = ExtResource("6_5i0tg")
+region = Rect2(0, 0, 16, 0)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7h61r")
@@ -92,5 +99,47 @@ position = Vector2(120, 32)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 67)
 script = ExtResource("3_0sr1o")
+
+[node name="-1;0" type="Node2D" parent="."]
+position = Vector2(-144, 16)
+
+[node name="0;0" type="Node2D" parent="."]
+position = Vector2(32, 16)
+
+[node name="1;0" type="Node2D" parent="."]
+position = Vector2(208, 16)
+
+[node name="-1;1" type="Node2D" parent="."]
+position = Vector2(-144, 119)
+
+[node name="anthill" type="Sprite2D" parent="-1;1"]
+position = Vector2(88, 51)
+texture = ExtResource("4_lfrn8")
+
+[node name="Ant" parent="-1;1/anthill" instance=ExtResource("4_kelw5")]
+position = Vector2(-13, 27)
+
+[node name="Ant2" parent="-1;1/anthill" instance=ExtResource("4_kelw5")]
+position = Vector2(29, -29)
+scale = Vector2(-1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="-1;1/anthill"]
+position = Vector2(15, 27)
+texture = SubResource("AtlasTexture_bdhmt")
+
+[node name="0;1" type="Node2D" parent="."]
+position = Vector2(32, 119)
+
+[node name="1;1" type="Node2D" parent="."]
+position = Vector2(208, 119)
+
+[node name="-1;2" type="Node2D" parent="."]
+position = Vector2(-144, 222)
+
+[node name="0;2" type="Node2D" parent="."]
+position = Vector2(32, 222)
+
+[node name="1;2" type="Node2D" parent="."]
+position = Vector2(208, 222)
 
 [connection signal="worm_moved" from="Worm" to="Camera2D" method="_on_worm_worm_moved"]

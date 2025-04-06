@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp1rdc7utjcrl"]
+
+[ext_resource type="Texture2D" uid="uid://l1gm65bwnh3h" path="res://actors/legs/legs.png" id="1_dw5kx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pso44"]
+atlas = ExtResource("1_dw5kx")
+region = Rect2(0, 0, 3, 0)
+
+[node name="Legs" type="Sprite2D"]
+texture = SubResource("AtlasTexture_pso44")

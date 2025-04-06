@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://nb7jl58246gp"]
+
+[ext_resource type="Script" uid="uid://bq5fo3feucg4l" path="res://actors/worm/worm.gd" id="1_71xjs"]
+[ext_resource type="Script" uid="uid://bc3k4hrt5ijjn" path="res://actors/worm/section.gd" id="2_1ccsj"]
+[ext_resource type="PackedScene" uid="uid://cp1rdc7utjcrl" path="res://actors/legs/legs.tscn" id="4_15asr"]
+[ext_resource type="Texture2D" uid="uid://ccb7nptgnwq87" path="res://actors/ant/small-section.png" id="5_rxusp"]
+[ext_resource type="Texture2D" uid="uid://dforksrd3rdfk" path="res://actors/ant/big-section.png" id="6_flcj6"]
+
+[node name="Ant" type="Node2D" node_paths=PackedStringArray("parts")]
+script = ExtResource("1_71xjs")
+parts = NodePath("Parts")
+metadata/_custom_type_script = "uid://bq5fo3feucg4l"
+
+[node name="Parts" type="Node2D" parent="."]
+
+[node name="Head" type="Node2D" parent="Parts"]
+script = ExtResource("2_1ccsj")
+colors = Array[Color]([Color(0.121569, 0.0627451, 0.164706, 1), Color(0.290196, 0.188235, 0.321569, 1)])
+metadata/_custom_type_script = "uid://bc3k4hrt5ijjn"
+
+[node name="Sprite2D" type="Sprite2D" parent="Parts/Head"]
+modulate = Color(0.121569, 0.0627451, 0.164706, 1)
+texture = ExtResource("5_rxusp")
+
+[node name="Link" type="Node2D" parent="Parts"]
+script = ExtResource("2_1ccsj")
+colors = Array[Color]([Color(0.121569, 0.0627451, 0.164706, 1), Color(0.290196, 0.188235, 0.321569, 1)])
+metadata/_custom_type_script = "uid://bc3k4hrt5ijjn"
+
+[node name="Legs" parent="Parts/Link" instance=ExtResource("4_15asr")]
+position = Vector2(-5, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parts/Link"]
+modulate = Color(0.121569, 0.0627451, 0.164706, 1)
+position = Vector2(-5, 0)
+texture = ExtResource("5_rxusp")
+
+[node name="WormSection" type="Node2D" parent="Parts"]
+script = ExtResource("2_1ccsj")
+colors = Array[Color]([Color(0.121569, 0.0627451, 0.164706, 1), Color(0.290196, 0.188235, 0.321569, 1)])
+metadata/_custom_type_script = "uid://bc3k4hrt5ijjn"
+
+[node name="Legs2" parent="Parts/WormSection" instance=ExtResource("4_15asr")]
+position = Vector2(-9, 3)
+
+[node name="Legs" parent="Parts/WormSection" instance=ExtResource("4_15asr")]
+position = Vector2(-12, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parts/WormSection"]
+modulate = Color(0.121569, 0.0627451, 0.164706, 1)
+position = Vector2(-10, 0)
+texture = ExtResource("6_flcj6")
