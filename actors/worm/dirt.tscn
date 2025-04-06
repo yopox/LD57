@@ -6,5 +6,5 @@
 z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.12, 0.0704, 0.024, 1)
+modulate = Color(0.529412, 0.207843, 0.333333, 1)
 texture = ExtResource("1_lny36")

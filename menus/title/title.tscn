@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://wnwdrqwpx4pb"]
+[gd_scene load_steps=7 format=3 uid="uid://wnwdrqwpx4pb"]
 
 [ext_resource type="Script" uid="uid://bgmbc7d265tks" path="res://ui/nodes/oscillator.gd" id="1_0s0d2"]
 [ext_resource type="FontFile" uid="uid://1u36t0bvqs5r" path="res://ui/fonts/Not Jam UI Condensed 16.ttf" id="1_662h8"]
 [ext_resource type="Script" uid="uid://dbddt1ybae7je" path="res://menus/title/title.gd" id="1_fhm75"]
 [ext_resource type="Shader" uid="uid://dqgdyc4q2shbi" path="res://menus/title/background.gdshader" id="2_dus5x"]
-[ext_resource type="Script" uid="uid://bch3vv0pesmao" path="res://ui/nodes/y-menu.gd" id="5_7edc8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7edc8"]
 shader = ExtResource("2_dus5x")
@@ -43,28 +42,6 @@ size_flags_horizontal = 4
 theme = SubResource("Theme_0s0d2")
 theme_override_font_sizes/font_size = 32
 text = "LD57"
-horizontal_alignment = 1
-
-[node name="YMenu" type="VBoxContainer" parent="."]
-offset_top = 62.0
-offset_right = 240.0
-offset_bottom = 110.0
-alignment = 1
-script = ExtResource("5_7edc8")
-metadata/_custom_type_script = "uid://bch3vv0pesmao"
-
-[node name="play" type="Label" parent="YMenu"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = SubResource("Theme_0s0d2")
-text = "play game"
-horizontal_alignment = 1
-
-[node name="exit" type="Label" parent="YMenu"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = SubResource("Theme_0s0d2")
-text = "exit"
 horizontal_alignment = 1
 
 [node name="Footer" type="Node2D" parent="."]
