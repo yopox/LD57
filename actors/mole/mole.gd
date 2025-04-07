@@ -1,7 +1,9 @@
 class_name Mole extends Sprite2D
 
-var state = State.SLEEPING: set = _set_state
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var bubble: Bubble = $Bubble
+
+var state = State.SLEEPING: set = _set_state
 
 enum State {
 	SLEEPING,
@@ -16,12 +18,19 @@ func _set_state(value: State) -> void:
 	match state:
 		State.SLEEPING:
 			animation_player.play("sleeping")
+			bubble.type = Bubble.Type.ASLEEP
 		State.AWAKE:
 			animation_player.stop()
+			bubble.type = Bubble.Type.SHOCKED
 			frame = 1
 		State.HAPPY:
 			animation_player.stop()
+			bubble.type = Bubble.Type.HAPPY
 			frame = 0
+		State.SAD:
+			animation_player.stop()
+			bubble.type = Bubble.Type.SAD
+			frame = 4
 
 
 func _on_wake_area_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
