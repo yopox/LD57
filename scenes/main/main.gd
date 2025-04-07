@@ -9,7 +9,7 @@ var current_gui_scene: Control
 
 func _ready() -> void:
 	Util.scene_manager = self
-	change_2d_scene(Util.Scenes.Title)
+	change_2d_scene(Util.Scenes.Game)
 
 
 func change_gui_scene(scene: Util.Scenes, delete: bool = true, keep_running: bool = false) -> void:
