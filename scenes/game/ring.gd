@@ -4,6 +4,9 @@ extends Sprite2D
 @onready var mole: Mole = $"../Mole"
 @onready var player: Worm = $"../../Player"
 @onready var bird_bubble: Bubble = $"../../1;0/Bird/Bubble"
+@onready var bird_glasses: Node2D = $"../../1;0/Bird + Glasses"
+@onready var bird_2: Sprite2D = $"../../1;0/Bird + Glasses/Bird2"
+
 
 
 var state: State = State.IDLE
@@ -25,6 +28,16 @@ func _process(delta: float) -> void:
 		state = State.END
 		quests.complete_quest(Quests.Name.BIRD)
 		bird_bubble.type = Bubble.Type.HAPPY
+		await tween.finished
+		
+		var tween2 = create_tween()
+		tween2.set_trans(Tween.TRANS_CUBIC)
+		tween2.tween_property(bird_glasses, "position", Vector2(12, 17), 1.25)
+		await tween2.finished
+		
+		var tween3 = create_tween()
+		tween3.set_trans(Tween.TRANS_CUBIC)
+		tween3.tween_property(bird_2, "position", Vector2(0, -48), 1.00)
 		return
 	
 	var followed = player.parts.get_children()[-1].global_position

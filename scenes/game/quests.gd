@@ -1,5 +1,7 @@
 class_name Quests extends Node
 
+@onready var parts: Node2D = $"../Player/Parts"
+
 @onready var heart_1: Sprite2D = $"../CanvasLayer/Progress/Heart1"
 @onready var heart_2: Sprite2D = $"../CanvasLayer/Progress/Heart2"
 @onready var heart_3: Sprite2D = $"../CanvasLayer/Progress/Heart3"
@@ -26,6 +28,7 @@ enum Name {
 
 func complete_quest(name: Name) -> void:
 	helped[name] = 1
+	
 	match name:
 		Name.FIREFLY:
 			heart_1.visible = true
@@ -39,6 +42,11 @@ func complete_quest(name: Name) -> void:
 			heart_5.visible = true
 		Name.WORM:
 			heart_6.visible = true
+			
+	var new_part_1 = parts.get_children()[-1].duplicate()
+	var new_part_2 = parts.get_children()[-1].duplicate()
+	parts.add_child(new_part_1)
+	parts.add_child(new_part_2)
 
 
 func is_completed(name: Name) -> bool:
