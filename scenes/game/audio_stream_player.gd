@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 
 @onready var player: Node2D = $"../Player"
 @onready var firefly: Node2D = $"../-1;1/Firefly"
-@onready var ant: Worm = $"../-1;2/anthill/Ant"
+@onready var ant: Worm = $"../-1;2/Ant"
 @onready var caterpillar_1: Node2D = $"../-1;0/Caterpillar"
 @onready var caterpillar_2: Node2D = $"../-1;1/Caterpillar"
 @onready var caterpillar_3: Node2D = $"../1;1/Caterpillar"
