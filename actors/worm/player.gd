@@ -1,6 +1,7 @@
 extends Worm
 
 @onready var face: Sprite2D = $Parts/s1/Face
+@onready var area_2d: Area2D = $Area2D
 
 var state: State = State.BASE
 var blocked: Dictionary[BlockMov.Type, int] = {}
@@ -57,6 +58,8 @@ func _process(_delta: float) -> void:
 	else:
 		face.position.y = -1.0
 	
+	block()
+	
 	if blocked.has(BlockMov.Type.BLOCK_X_MINUS):
 		direction.x = max(0, direction.x)
 	if blocked.has(BlockMov.Type.BLOCK_X_PLUS):
@@ -69,11 +72,8 @@ func _process(_delta: float) -> void:
 	move(direction)
 
 
-func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if area is BlockMov:
-		blocked[area.type] = 1
-
-
-func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if area is BlockMov:
-		blocked.erase(area.type)
+func block() -> void:
+	blocked.clear()
+	for area in area_2d.get_overlapping_areas():
+		if area is BlockMov:
+			blocked[area.type] = 1

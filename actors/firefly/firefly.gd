@@ -62,7 +62,7 @@ func go_to_air(delta: float) -> void:
 	if global_position.y < 24:
 		state = State.FLOATING
 		bubble.type = Bubble.Type.HAPPY
-		Util.quests.firefly_helped = true
+		Util.quests.complete_quest(Quests.Name.FIREFLY)
 
 
 func move_up(angle: float, delta: float) -> void:

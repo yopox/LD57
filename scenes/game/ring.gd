@@ -21,9 +21,9 @@ func _process(delta: float) -> void:
 	if global_position.y < 40 and global_position.x > 312:
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(self, "global_position", Vector2(335, 29), 0.75)
+		tween.tween_property(self, "global_position", Vector2(341, 21), 0.75)
 		state = State.END
-		quests.bird_helped = true
+		quests.complete_quest(Quests.Name.BIRD)
 		bird_bubble.type = Bubble.Type.HAPPY
 		return
 	

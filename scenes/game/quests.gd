@@ -5,12 +5,24 @@ var following_caterpillar: Node2D = null
 var saved_caterpillars: int = 0 : set = _set_saved_caterpillars
 @export var waiting_caterpillar: Caterpillar
 
-var ant_helped: bool = false
-var bird_helped: bool = false
-var mole_helped: bool = false
-var firefly_helped: bool = false
-var caterpillars_helped: bool = false
-var worm_helped: bool = false
+var helped: Dictionary[Name, Variant] = {}
+
+enum Name {
+	ANT,
+	BIRD,
+	MOLE,
+	FIREFLY,
+	CATERPILLARS,
+	WORM,
+}
+
+
+func complete_quest(name: Name) -> void:
+	helped[name] = 1
+
+
+func is_completed(name: Name) -> bool:
+	return helped.has(name)
 
 
 func _ready() -> void:
@@ -22,4 +34,4 @@ func _set_saved_caterpillars(value: int) -> void:
 	if value != 2: return
 	
 	waiting_caterpillar.bubble.type = Bubble.Type.HAPPY
-	caterpillars_helped = true
+	complete_quest(Name.CATERPILLARS)
