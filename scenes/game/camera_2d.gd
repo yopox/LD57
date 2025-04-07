@@ -1,5 +1,7 @@
 extends Camera2D
 
+signal quadrant_changed(quadrant: Vector2i)
+
 var quadrant = Vector2i(0, 0)
 
 var W = 240
@@ -30,6 +32,7 @@ func _on_worm_worm_moved(pos: Vector2, disp: Vector2) -> void:
 	
 	if quadrant != q:
 		var tween = create_tween()
+		quadrant_changed.emit(quadrant)
 		tween.set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "position", quadrant_center(), 0.75)
 

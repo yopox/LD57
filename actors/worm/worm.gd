@@ -3,8 +3,8 @@ class_name Worm extends Node2D
 signal worm_moved(pos: Vector2, disp: Vector2)
 
 @export var parts: Node2D
+@export var speed = 0.5
 
-var speed = 0.5
 var head_pos = Vector2.ZERO
 
 var dirt = preload("res://actors/worm/dirt.tscn")

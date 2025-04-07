@@ -3,6 +3,8 @@ extends Node
 enum Scenes { Title, Game }
 
 var scene_manager: SceneManager
+var quests: Quests
+var player: Worm
 
 var dirt: Node2D
 

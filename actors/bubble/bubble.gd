@@ -9,12 +9,20 @@ enum Type {
 	LOVE,
 }
 
-@export var type: Type = Type.SAD
+@export var type: Type = Type.SAD : set = _set_type
+
+
+func _set_type(value: Type) -> void:
+	type = value
+	update_bubble()
 
 
 func _ready() -> void:
 	texture = texture.duplicate()
-	
+	update_bubble()
+
+
+func update_bubble() -> void:
 	match type:
 		Type.SAD: (texture as AtlasTexture).region.position.x = 0
 		Type.HAPPY: (texture as AtlasTexture).region.position.x = 1 * 12

@@ -2,6 +2,7 @@ extends Worm
 
 @onready var face: Sprite2D = $Parts/s1/Face
 
+var state: State = State.BASE
 var blocked: Dictionary[BlockMov.Type, int] = {}
 
 enum State {
@@ -10,6 +11,10 @@ enum State {
 	RING,
 	GLASSES,
 }
+
+
+func _ready() -> void:
+	Util.player = self
 
 
 func _process(_delta: float) -> void:
