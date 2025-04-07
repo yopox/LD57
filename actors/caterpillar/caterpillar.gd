@@ -44,8 +44,8 @@ func _process(delta: float) -> void:
 	t += delta
 
 
-func circle(t: float) -> void:
-	move_body(start_pos + Vector2.from_angle(t * direction * cat_speed) * radius - Vector2(radius, 0))
+func circle(time: float) -> void:
+	move_body(start_pos + Vector2.from_angle(time * direction * cat_speed) * radius - Vector2(radius, 0))
 
 
 func detect_player() -> void:

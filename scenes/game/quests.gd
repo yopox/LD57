@@ -42,15 +42,15 @@ func complete_quest(name: Name) -> void:
 			heart_5.visible = true
 		Name.WORM:
 			heart_6.visible = true
-			
-	var new_part_1 = parts.get_children()[-1].duplicate()
-	var new_part_2 = parts.get_children()[-1].duplicate()
-	parts.add_child(new_part_1)
-	parts.add_child(new_part_2)
+	
+	var last_section: Node2D = parts.get_children()[-1]
+	var new_part: Node2D = last_section.duplicate()
+	new_part.z_index = last_section.z_index - 1
+	parts.add_child(new_part)
 
 
-func is_completed(name: Name) -> bool:
-	return helped.has(name)
+func is_completed(quest: Name) -> bool:
+	return helped.has(quest)
 
 
 func _ready() -> void:

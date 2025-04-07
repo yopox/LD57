@@ -73,10 +73,10 @@ func move_up(angle: float, delta: float) -> void:
 func dirt_mark() -> void:
 	if global_position.y < 40: return
 	
-	var dirt_mark: Node2D = dirt.instantiate()
-	dirt_mark.position = sprite.global_position
-	mark_node.add_child(dirt_mark)
+	var mark: Node2D = dirt.instantiate()
+	mark.position = sprite.global_position
+	mark_node.add_child(mark)
 	
 	var dirt_marks = mark_node.get_children()
-	for i in range(0, dirt_marks.size() - 200):
+	for i in range(0, dirt_marks.size() - 20):
 		dirt_marks[i].queue_free()
