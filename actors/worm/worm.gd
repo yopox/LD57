@@ -14,9 +14,14 @@ func dir(d: String) -> bool:
 
 func move(direction: Vector2):
 	var displacement = direction * speed
-	var dist = speed
+	move_body(global_position + displacement)
+
+
+func move_body(pos: Vector2) -> void:
+	var displacement = pos - global_position
+	var dist = displacement.length()
 	
-	position += displacement
+	global_position = pos
 	parts.position -= displacement
 	head_pos += displacement
 	worm_moved.emit(position, displacement)

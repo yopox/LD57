@@ -12,8 +12,11 @@ enum State {
 @export var state: State
 @export var bubble: Bubble
 @export var target_dest: Node2D
+@export var direction: float = 1.0
+@export var radius: float = 16.0
 
 var start_pos: Vector2
+var cat_speed = 2 * PI * radius * speed / 50
 var t: float = 0.0
 
 
@@ -24,19 +27,25 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	match state:
 		State.HAPPY:
-			move(Vector2.from_angle(t))
+			circle(t)
 		State.WAITING:
-			move(Vector2.from_angle(t))
+			circle(t)
 		State.CIRCLE:
-			move(Vector2.from_angle(t))
+			circle(t)
 			detect_player()
 		State.FOLLOWING:
 			follow_player()
 		State.GO_BACK:
 			go_to_start_dest()
+			detect_player()
 		State.ARRIVED:
 			go_to_target_dest()
+	
 	t += delta
+
+
+func circle(t: float) -> void:
+	move_body(start_pos + Vector2.from_angle(t * direction * cat_speed) * radius - Vector2(radius, 0))
 
 
 func detect_player() -> void:
@@ -68,6 +77,7 @@ func go_to_target_dest() -> void:
 	else:
 		t = 0
 		state = State.HAPPY
+		start_pos = target_dest.global_position
 		bubble.type = Bubble.Type.HAPPY
 
 
