@@ -3,6 +3,7 @@ class_name Caterpillar extends Worm
 enum State {
 	CIRCLE,
 	FOLLOWING,
+	GO_BACK,
 	ARRIVED,
 	HAPPY,
 	WAITING,
@@ -12,7 +13,12 @@ enum State {
 @export var bubble: Bubble
 @export var target_dest: Node2D
 
+var start_pos: Vector2
 var t: float = 0.0
+
+
+func _ready() -> void:
+	start_pos = global_position
 
 
 func _process(delta: float) -> void:
@@ -26,6 +32,8 @@ func _process(delta: float) -> void:
 			detect_player()
 		State.FOLLOWING:
 			follow_player()
+		State.GO_BACK:
+			go_to_start_dest()
 		State.ARRIVED:
 			go_to_target_dest()
 	t += delta
@@ -46,8 +54,8 @@ func follow_player() -> void:
 	var dist = tracked_pos.distance_to(global_position)
 	if dist > 8.0 and dist < 32.0:
 		move(Vector2.from_angle(global_position.angle_to_point(tracked_pos)))
-	elif dist >= 32.0:
-		state = State.CIRCLE
+	elif dist > 40.0:
+		state = State.GO_BACK
 		bubble.type = Bubble.Type.SAD
 		Util.quests.following_caterpillar = null
 
@@ -62,6 +70,14 @@ func go_to_target_dest() -> void:
 		state = State.HAPPY
 		bubble.type = Bubble.Type.HAPPY
 
+
+func go_to_start_dest() -> void:
+	var dist = start_pos.distance_to(global_position)
+	if dist > 0.1:
+		move(Vector2.from_angle(global_position.angle_to_point(start_pos)))
+	else:
+		t = 0
+		state = State.CIRCLE
 
 func _on_camera_2d_quadrant_changed(quadrant: Vector2i) -> void:
 	if state != State.FOLLOWING: return

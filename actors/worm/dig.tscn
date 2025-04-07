@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cajskcn6narbx"]
+
+[ext_resource type="Script" uid="uid://dq0qcxp50p371" path="res://actors/worm/dig.gd" id="1_ygch3"]
+
+[node name="Dig" type="Node"]
+script = ExtResource("1_ygch3")

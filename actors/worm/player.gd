@@ -67,18 +67,6 @@ func _process(_delta: float) -> void:
 		direction.y = min(0, direction.y)
 	
 	move(direction)
-	add_dirt()
-
-
-func add_dirt() -> void:
-	for section: WormSection in parts.get_children():
-		var dirt_mark: Node2D = dirt.instantiate()
-		dirt_mark.position = position + section.position - head_pos
-		Util.dirt.add_child(dirt_mark)
-	
-	var dirt_marks = Util.dirt.get_children()
-	for i in range(0, dirt_marks.size() - 200 * parts.get_children().size()):
-		dirt_marks[i].queue_free()
 
 
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:

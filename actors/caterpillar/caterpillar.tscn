@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjqwp3x47x6vs"]
+[gd_scene load_steps=7 format=3 uid="uid://bjqwp3x47x6vs"]
 
 [ext_resource type="Script" uid="uid://c823jvfacbx82" path="res://actors/caterpillar/caterpillar.gd" id="1_txqh7"]
 [ext_resource type="Script" uid="uid://bc3k4hrt5ijjn" path="res://actors/worm/section.gd" id="2_txqh7"]
 [ext_resource type="Texture2D" uid="uid://c0ytmvu1ihawg" path="res://actors/worm/section.png" id="3_n8wi1"]
 [ext_resource type="PackedScene" uid="uid://cp1rdc7utjcrl" path="res://actors/legs/legs.tscn" id="4_lp74i"]
 [ext_resource type="PackedScene" uid="uid://k8u50nesusqi" path="res://actors/face/face.tscn" id="5_n8wi1"]
+[ext_resource type="PackedScene" uid="uid://cajskcn6narbx" path="res://actors/worm/dig.tscn" id="6_jqu8o"]
 
 [node name="Centipede" type="Node2D" node_paths=PackedStringArray("parts")]
 script = ExtResource("1_txqh7")
@@ -67,3 +68,7 @@ texture = ExtResource("3_n8wi1")
 [node name="Legs" parent="Parts/WormSection4" instance=ExtResource("4_lp74i")]
 visible = false
 position = Vector2(-1, 3)
+
+[node name="Dig" parent="." instance=ExtResource("6_jqu8o")]
+
+[connection signal="worm_moved" from="." to="Dig" method="_on_worm_worm_moved"]

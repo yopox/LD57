@@ -7,8 +7,6 @@ signal worm_moved(pos: Vector2, disp: Vector2)
 
 var head_pos = Vector2.ZERO
 
-var dirt = preload("res://actors/worm/dirt.tscn")
-
 
 func dir(d: String) -> bool:
 	return Input.is_action_pressed(d)
