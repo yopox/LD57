@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy5f6sxex581v"]
+[gd_scene load_steps=4 format=3 uid="uid://dy5f6sxex581v"]
 
 [ext_resource type="Script" uid="uid://bc3k4hrt5ijjn" path="res://actors/worm/section.gd" id="1_lftxw"]
 [ext_resource type="Texture2D" uid="uid://c0ytmvu1ihawg" path="res://actors/worm/section.png" id="2_vwaod"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwaod"]
+radius = 4.0
 
 [node name="Section" type="Node2D"]
 script = ExtResource("1_lftxw")
@@ -9,3 +12,10 @@ script = ExtResource("1_lftxw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.521569, 1, 1)
 texture = ExtResource("2_vwaod")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vwaod")
