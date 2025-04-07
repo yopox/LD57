@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cufur1ba5fdvi"]
+[gd_scene load_steps=6 format=3 uid="uid://cufur1ba5fdvi"]
 
 [ext_resource type="Texture2D" uid="uid://cf0qsvb2lh4xt" path="res://actors/mole/mole.png" id="1_7rdcv"]
+[ext_resource type="Script" uid="uid://dhho15vek6uq8" path="res://actors/mole/mole.gd" id="2_cxvdb"]
 
 [sub_resource type="Animation" id="Animation_cxvdb"]
 length = 0.001
@@ -43,6 +44,8 @@ _data = {
 [node name="Mole" type="Sprite2D"]
 texture = ExtResource("1_7rdcv")
 hframes = 4
+script = ExtResource("2_cxvdb")
+metadata/_custom_type_script = "uid://dhho15vek6uq8"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
