@@ -27,7 +27,6 @@ func _on_sensors_sensor_enabled(enabled: bool) -> void:
 
 func _on_timer_timeout() -> void:
 	hp -= 1
-	print(hp)
 	if hp == 0:
 		particles.amount = 64
 		state = State.BROKE
