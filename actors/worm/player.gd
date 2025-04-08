@@ -19,6 +19,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if Util.block_mov:
+		return
+	
 	if not dir("w") and not dir("e") and not dir("d") and not dir("x") and not dir("z") and not dir("a"):
 		return
 	

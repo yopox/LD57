@@ -28,7 +28,10 @@ func _process(delta: float) -> void:
 		state = State.END
 		quests.complete_quest(Quests.Name.BIRD)
 		bird_bubble.type = Bubble.Type.HAPPY
+		
+		Util.block_mov = true
 		await tween.finished
+		Util.block_mov = false
 		
 		var tween2 = create_tween()
 		tween2.set_trans(Tween.TRANS_CUBIC)
@@ -54,4 +57,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "global_position", target_pos, 0.75)
+		
+		Util.block_mov = true
+		await tween.finished
+		Util.block_mov = false
 		
