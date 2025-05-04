@@ -16,6 +16,9 @@ enum State {
 
 func _ready() -> void:
 	Util.player = self
+	var z = 900
+	for part: Node2D in parts.get_children():
+		part.z_index = z ; z -= 1
 
 
 func _process(_delta: float) -> void:

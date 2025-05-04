@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd6jsqvn00y87"]
+[gd_scene load_steps=3 format=3 uid="uid://dd6jsqvn00y87"]
 
 [ext_resource type="Texture2D" uid="uid://c0ytmvu1ihawg" path="res://actors/worm/section.png" id="1_lny36"]
+[ext_resource type="Script" uid="uid://c462sr6tobwh1" path="res://actors/worm/dirt.gd" id="1_wimr6"]
 
 [node name="Dirt" type="Node2D"]
 z_index = -1
+script = ExtResource("1_wimr6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.529412, 0.207843, 0.333333, 1)

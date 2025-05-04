@@ -37,16 +37,16 @@ func _process(delta: float) -> void:
 
 func go_up(delta: float) -> void:
 	var m_pos: Variant = null
-	var fp = global_position
-	for mark_parent in mark_node.get_parent().get_children():
+	var fp: Vector2 = global_position
+	for dirt_container: DirtContainer in mark_node.get_parent().get_children():
+		if dirt_container == mark_node: continue
 		if m_pos != null: break
-		if mark_parent == mark_node: continue
-		for mark in mark_parent.get_children():
-			var mp = mark.global_position
-			if not (mp.y > fp.y - 12 and mp.y < fp.y): continue
-			if not (mp.x > fp.x - 6 and mp.x < fp.x + 6): continue
-			m_pos = mp
-			break
+		var key = floor(fp / 4)
+		for dx in range(5):
+			var i = Vector2i(int(key.x + dx - 2), int(key.y - 1))
+			if dirt_container.dirt_marks.has(i) and len(dirt_container.dirt_marks[i]) > 0:
+				m_pos = dirt_container.dirt_marks[i].pick_random().position
+				break
 	
 	if m_pos == null: return
 	move_up(fp.angle_to_point(m_pos), delta)
